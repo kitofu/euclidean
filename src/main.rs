@@ -1,8 +1,13 @@
 use std::io;
+use rand::Rng;
 
 
 fn main() {
     println!("Euclidean Algorithm");
+
+    let root_number = rand::thread_rng().gen_range(0, 1001);
+    println!("root_number is:{}", root_number); //秘密の数字は次の通り:{}
+
 
     loop{
 
@@ -19,25 +24,8 @@ fn main() {
         Err(_) => continue,
     };
 
-    println!("number a is {}", a_number);
-
-        //Bいれてね
-    println!("Please input number b:");
-
-    let mut b_number = String::new();
-
-    io::stdin().read_line(&mut b_number)   //←         できてない
-        .expect("Failed to read line");
-
-    let b_number: u32 = match b_number.trim().parse(){
-        Ok(num) => num,
-        Err(_) => continue,
-    };
-
-    println!("number b is {}", b_number);
-
-    if a_number < b_number {
-        println!("Must be less than number_a")
+    if a_number > root_number {
+        println!("Must be less than root_number");
         continue;
     }
 
