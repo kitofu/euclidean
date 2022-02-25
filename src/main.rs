@@ -5,7 +5,7 @@ use rand::Rng;
 fn main() {
     println!("Euclidean Algorithm");
 
-    let root_number = rand::thread_rng().gen_range(0, 1001);
+    let mut root_number = rand::thread_rng().gen_range(0, 1001);
     println!("root_number is:{}", root_number); //秘密の数字は次の通り:{}
 
     let mut a_number = String::new();
@@ -30,15 +30,17 @@ fn main() {
     break;
     }
 //ここで計算したらいいかな？
-//a_number をStringで定義したからこの後計算できなくて怒られる u32にキャストしたい
+//a_number をStringで定義したからこの後計算できなくて怒られる u32にキャストしたいい
+    let mut num :u32 = a_number.parse().unwrap();  //zhキャストがうまくいかないi32しか扱えないみたい
+
     loop{
-        let rem = root_number % a_number;
+        let rem = root_number % num;
         if rem == 0{
-            println!("answer = {}", a_number);
+            println!("answer = {}", num);
             break;
         }else{
-            root_number = a_number;
-            a_number = rem;
+            root_number = num;
+            num = rem;
         }
 
     }
