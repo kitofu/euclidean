@@ -30,8 +30,10 @@ fn main() {
     break;
     }
 //ここで計算したらいいかな？
-//a_number をStringで定義したからこの後計算できなくて怒られる u32にキャストしたいい
-    let mut num :u32 = a_number.parse().unwrap();  //zhキャストがうまくいかないi32しか扱えないみたい
+//a_number をStringで定義したからこの後計算できなくて怒られる u32にキャストしたいい?
+    // let mut num: u32 = a_number.trim().parse();
+    let mut num: u32 = a_number.trim().parse();
+
 
     loop{
         let rem = root_number % num;
