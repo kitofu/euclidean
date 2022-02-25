@@ -8,11 +8,11 @@ fn main() {
     let root_number = rand::thread_rng().gen_range(0, 1001);
     println!("root_number is:{}", root_number); //秘密の数字は次の通り:{}
 
+    let mut a_number = String::new();
 //ループでよき数字入れてもらう
     loop{
     println!("Please input number a:");
 
-    let mut a_number = String::new();
 
     io::stdin().read_line(&mut a_number)   //← よく理解してない
         .expect("Failed to read line");
@@ -27,13 +27,21 @@ fn main() {
         continue;
     }
 
-
     break;
     }
 //ここで計算したらいいかな？
+//a_number をStringで定義したからこの後計算できなくて怒られる u32にキャストしたい
+    loop{
+        let rem = root_number % a_number;
+        if rem == 0{
+            println!("answer = {}", a_number);
+            break;
+        }else{
+            root_number = a_number;
+            a_number = rem;
+        }
 
-
-
+    }
 
 }
 
